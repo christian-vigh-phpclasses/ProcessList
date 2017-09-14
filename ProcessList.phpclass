@@ -217,7 +217,7 @@ class  ProcessList		implements	\ArrayAccess, \Countable, \IteratorAggregate
 		for  ( $i = 1 ; $i  <  $count ; $i ++ )
 		   {
 			$line		=  trim ( $output [$i] ) ;
-			$columns	=  String::SplitFields ( $line, 6 ) ;
+			$columns 	=  preg_split('/ +/', $line);
 			$process	=  new  Process ( $columns [7], null, $this -> IsWindows ) ;
 
 			if  ( preg_match ( '/\d+:\d+/', $columns [4] ) )
